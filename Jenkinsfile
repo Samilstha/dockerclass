@@ -1,11 +1,13 @@
 pipeline {
     agent any
-    stage('Cleanup Workspace') {
+    
+    stages {
+        stage('Cleanup Workspace') {
             steps {
                 cleanWs()
             }
         }
-    stages {
+        
         stage('Checkout Code') {
             steps {
                 // Checkout the source code from the GitHub repository
@@ -56,7 +58,6 @@ pipeline {
         always {
             // Actions to always perform, regardless of success or failure
             echo 'Cleaning up...'
-            cleanWs()
         }
     }
 }
