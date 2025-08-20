@@ -1,17 +1,15 @@
 pipeline {
     agent any
-
+    stage('Cleanup Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
     stages {
         stage('Checkout Code') {
             steps {
                 // Checkout the source code from the GitHub repository
                 checkout scm
-            }
-        }
-
-        stage('Checkout Code') {
-            steps {
-                cleanWs()
             }
         }
 
