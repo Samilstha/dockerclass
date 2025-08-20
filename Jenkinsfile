@@ -9,6 +9,12 @@ pipeline {
             }
         }
 
+        stage('Checkout Code') {
+            steps {
+                cleanWs()
+            }
+        }
+
         stage('Clean Up Docker') {
             steps {
                 script {
